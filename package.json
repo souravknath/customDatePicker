@@ -1,0 +1,21 @@
+{
+  "name": "sdrc-datepicker",
+  "version": "1.1.3",
+  "author": "SDRC",
+  "license": "MIT",
+  "peerDependencies": {
+    "ionic-angular": "^3.9.2",
+    "ionicons": "3.0.0",
+    "moment": "^2.20.1"
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "datepicker": {
+      "entryFile": "public_api.ts"
+    },
+    "dest": "dist"
+  }
+}
+
+
+

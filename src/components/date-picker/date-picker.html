@@ -1,0 +1,39 @@
+<div class="date-picker">
+  <div class="layout-container-col horizontal-center layout-background">
+    <div class="layout-container-col horizontal-center top-banner">
+      <div class="dayofweek padding-5">{{currentMoment.format('dddd')}}</div>
+      <div class="text-center padding-10" style="display: flex;width: 100%">
+        <div class="padding-5" style="width: 100%">
+          <ion-icon class="arrow" name="arrow-back" tappable (click)="setMonthBack()"></ion-icon>
+          <span class="month padding-10">{{currentMoment.format('MMM')}}</span>
+          <ion-icon class="arrow" name="arrow-forward" tappable (click)="setMonthForward()"></ion-icon>
+        </div>
+        <div class="day padding-5">{{currentMoment.format('D')}}</div>
+        <div class="text-center padding-5" style="width: 100%">
+          <ion-icon class="arrow" name="arrow-back" tappable (click)="setYearBack()"></ion-icon>
+          <span class="year padding-10">{{currentMoment.format('YYYY')}}</span>
+          <ion-icon class="arrow" name="arrow-forward" tappable (click)="setYearForward()"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <div class="month-year">{{currentMoment.format('MMMM YYYY')}}</div>
+    <div class="calendar-item-container">
+      <div class="layout-container-row day-item-header">
+        <div class="day-item-header-item">S</div>
+        <div class="day-item-header-item">M</div>
+        <div class="day-item-header-item">T</div>
+        <div class="day-item-header-item">W</div>
+        <div class="day-item-header-item">T</div>
+        <div class="day-item-header-item">F</div>
+        <div class="day-item-header-item">S</div>
+      </div>
+      <div class="layout-container-row day-container" *ngFor="let week of daysGroupedByWeek;">
+        <div class="day-item" [ngClass]="{'day-selected': day.isSelected, 'day-disabled': !day.isEnabled}" *ngFor="let day of week;" tappable (click)="selectDate(day)">{{day.momentDate.date()}}</div>
+      </div>
+    </div>
+    <div class="layout-container-row action-container">
+      <button class="cancel-button button button-md button-clear button-clear-md" clear (click)="cancel()">Cancel</button>
+      <button clear class="ok-button button button-md button-clear button-clear-md" (click)="confirmDateSelection()">OK</button>
+    </div>
+  </div>
+</div>
